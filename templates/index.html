@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>TexT SummarizeR.</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	-->
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!-- Custom styles for this template -->
+		<link href="navbar.css" rel="stylesheet">
+	</head>
+	
+	<body background="C:\Users\NI40006105\Desktop\project\pics\pic1.jpg">
+		 <div class="navbar-wrapper">
+		  <div class="container">
+
+			<nav class="navbar navbar-inverse navbar-static-top">
+			  <div class="container">
+				<div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				  <a class="navbar-brand" style="text-align:center" href="#">TexT SummarizeR.</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+				  <ul class="nav navbar-nav" style="float:right">
+					<li class="active" ><a href="#">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#kinds">Kinds</a></li>
+				  </ul>
+				</div>
+			  </div>
+			</nav>
+
+		  </div>
+		</div>
+		<div class="container" style="padding-top:23%">
+			<div class="row">
+				<div class="col-sm-4 jumbotorn" style="background-color:#696969;padding-top:10px; border-radius: 20px;">
+					<div class="panel panel-default">
+						<div class="panel-heading"><h3><b>Through Text File</b></h3></div>
+						<div class="panel-body">
+							<form method="POST" action="/text">
+							  <input class="btn" type="file" name="text" accept="media_type">
+							  <input class="btn btn-basic" type="submit">
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 jumbotorn" style="background-color:#696969;padding-top:10px; border-radius: 20px;">
+					<div class="panel panel-default">
+						<div class="panel-heading"><h3><b>Through Audio File</b></h3></div>
+						<div class="panel-body">
+							<form method="POST" action="/audio">
+							  <input class="btn" type="file" name="audio" accept="audio/*">
+							  <input class="btn btn-basic" type="submit">
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 jumbotorn" style="background-color:#696969;padding-top:10px; border-radius: 20px;">
+					<div class="panel panel-default">
+						<div class="panel-heading"><h3><b>Through URL</b></h3></div>
+						<div class="panel-body">
+							<form action="/url.php">
+							<h4>Enter URL:</h4>
+							  <input type="input" value="https:wikipideia/harry_styles.com"></input>
+							  <input class="btn btn-basic" style="padding-left:25px;" type="submit">
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
