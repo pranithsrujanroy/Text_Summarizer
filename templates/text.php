@@ -45,46 +45,6 @@
 				</div>
 			  </div>
 			</nav>
-
-		  </div>
-		</div>
-		<div class="container" style="padding-top:23%">
-			<div class="row">
-				<div class="col-sm-4 jumbotorn" style="background-color:#696969;padding-top:10px; border-radius: 20px;">
-					<div class="panel panel-default">
-						<div class="panel-heading"><h3><b>Through Text File</b></h3></div>
-						<div class="panel-body">
-							<form method="POST" action="/text">
-							  <input class="btn" type="file" name="text" accept="media_type">
-							  <input class="btn btn-basic" type="submit">
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4 jumbotorn" style="background-color:#696969;padding-top:10px; border-radius: 20px;">
-					<div class="panel panel-default">
-						<div class="panel-heading"><h3><b>Through Audio File</b></h3></div>
-						<div class="panel-body">
-							<form method="POST" action="/audio">
-							  <input class="btn" type="file" name="audio" accept="audio/*">
-							  <input class="btn btn-basic" type="submit">
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4 jumbotorn" style="background-color:#696969;padding-top:10px; border-radius: 20px;">
-					<div class="panel panel-default">
-						<div class="panel-heading"><h3><b>Through URL</b></h3></div>
-						<div class="panel-body">
-							<form action="/url.php">
-							<h4>Enter URL:</h4>
-							  <input type="input" value="https:wikipideia/harry_styles.com"></input>
-							  <input class="btn btn-basic" style="padding-left:25px;" type="submit">
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+			
 	</body>
-</html>
+</html

@@ -46,45 +46,75 @@
 			  </div>
 			</nav>
 
-		  </div>
-		</div>
-		<div class="container" style="padding-top:23%">
-			<div class="row">
-				<div class="col-sm-4 jumbotorn" style="background-color:#696969;padding-top:10px; border-radius: 20px;">
-					<div class="panel panel-default">
-						<div class="panel-heading"><h3><b>Through Text File</b></h3></div>
-						<div class="panel-body">
-							<form method="POST" action="/text">
-							  <input class="btn" type="file" name="text" accept="media_type">
-							  <input class="btn btn-basic" type="submit">
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4 jumbotorn" style="background-color:#696969;padding-top:10px; border-radius: 20px;">
-					<div class="panel panel-default">
-						<div class="panel-heading"><h3><b>Through Audio File</b></h3></div>
-						<div class="panel-body">
-							<form method="POST" action="/audio">
-							  <input class="btn" type="file" name="audio" accept="audio/*">
-							  <input class="btn btn-basic" type="submit">
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4 jumbotorn" style="background-color:#696969;padding-top:10px; border-radius: 20px;">
-					<div class="panel panel-default">
-						<div class="panel-heading"><h3><b>Through URL</b></h3></div>
-						<div class="panel-body">
-							<form action="/url.php">
-							<h4>Enter URL:</h4>
-							  <input type="input" value="https:wikipideia/harry_styles.com"></input>
-							  <input class="btn btn-basic" style="padding-left:25px;" type="submit">
-							</form>
-						</div>
-					</div>
-				</div>
+			<div>
+			  <a href="#" id="start_button" onclick="startDictation(event)">Dictate</a>
 			</div>
-		</div>
+
+			<div id="results">
+			  <span id="final_span" class="final"></span>
+			  <span id="interim_span" class="interim"></span>
+			</div>
+
+			<script type="text/javascript">
+			var final_transcript = '';
+			var recognizing = false;
+
+			if ('webkitSpeechRecognition' in window) {
+
+			  var recognition = new webkitSpeechRecognition();
+
+			  recognition.continuous = true;
+			  recognition.interimResults = true;
+
+			  recognition.onstart = function() {
+				recognizing = true;
+			  };
+
+			  recognition.onerror = function(event) {
+				console.log(event.error);
+			  };
+
+			  recognition.onend = function() {
+				recognizing = false;
+			  };
+
+			  recognition.onresult = function(event) {
+				var interim_transcript = '';
+				for (var i = event.resultIndex; i < event.results.length; ++i) {
+				  if (event.results[i].isFinal) {
+					final_transcript += event.results[i][0].transcript;
+				  } else {
+					interim_transcript += event.results[i][0].transcript;
+				  }
+				}
+				final_transcript = capitalize(final_transcript);
+				final_span.innerHTML = linebreak(final_transcript);
+				interim_span.innerHTML = linebreak(interim_transcript);
+				
+			  };
+			}
+
+			var two_line = /\n\n/g;
+			var one_line = /\n/g;
+			function linebreak(s) {
+			  return s.replace(two_line, '<p></p>').replace(one_line, '<br>');
+			}
+
+			function capitalize(s) {
+			  return s.replace(s.substr(0,1), function(m) { return m.toUpperCase(); });
+			}
+
+			function startDictation(event) {
+			  if (recognizing) {
+				recognition.stop();
+				return;
+			  }
+			  final_transcript = '';
+			  recognition.lang = 'en-US';
+			  recognition.start();
+			  final_span.innerHTML = '';
+			  interim_span.innerHTML = '';
+			}
+			</script>
 	</body>
-</html>
+</html
