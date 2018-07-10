@@ -1,4 +1,3 @@
-# print("1:")
 import nltk
 import string
 from lxml import html
@@ -75,54 +74,12 @@ class FrequencySummarizer:
     return nlargest(n, ranking, key=ranking.get)
 # print("5:")
 
-def get_url(url_var):
-  response = requests.get(url_var)
-  tree = html.fromstring(response.content)
-  doc = Document(response.text)
-  # print(doc.title())
-  tree_text = tree.xpath('//p/text() | //p/a/text() |//p/b/text() | //div/text() | //h2/text() | //h1/text() | //h2/a/text() | //h3/text() | //h3/a/text()')
-  # tree_text = tree.xpath('//div/text()')
-  # print(tree_text)
-  # response=request.urlopen("https://en.wikipedia.org/wiki/Louis_Tomlinson")
-  # print("URL:",response.geturl())
-
-  # print("2:")
-  text=""
-  file=open('text_with_b.txt','w+')
-  for x in tree_text:
-      if("'b'" in x):
-          x.strip("'b'")
-      file.write(str(x.encode("utf-8")))
-  file.close()
-
-  # print("3:")
-  s0='"b"'
-  s1="'b'"
-  s2="'b"
-  s3="b'"
-  # print(set(string.printable))
-  # pattern = "\"(?=[<\"]+,)[>\"]+\""
-  with open('text_with_b.txt', 'r') as infile, \
-       open('text_document.txt', 'w') as outfile:
-      data = infile.read()
-      data = data.replace(s0,"")
-      data = data.replace(s1, "")
-      data = data.replace(s2, "")
-      data = data.replace(s3, "")
-      outfile.write(data)
-  infile.close()
-  outfile.close()
-
-  print(doc.title())
-  print()
-  fs = FrequencySummarizer()
-  f=open('result.txt','w+')
-  f.write(str(doc.title()+'\n'))
-  with open('text_document.txt',"r") as file:
-      text=file.read()
-      for s in fs.summarize(text,4):
-          f.write(str('*'+s))
-          print()
-  f.close()
-  # starting summarizer 
-  # print("4:")
+def get_text(file_name):
+	fs = FrequencySummarizer()
+	f=open('result.txt','w+')
+	with open(file_name,"r") as file:
+	  text=file.read()
+	  for s in fs.summarize(text,4):
+	      f.write(str('*'+s))
+	      print()
+	f.close()
